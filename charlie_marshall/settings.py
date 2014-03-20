@@ -70,13 +70,13 @@ ROOT_URLCONF = 'charlie_marshall.urls'
 WSGI_APPLICATION = 'charlie_marshall.wsgi.application'
 
 TEMPLATE_CONTEXT_PROCESSORS = (
-    "django.contrib.auth.context_processors.auth",
-    "django.core.context_processors.debug",
-    "django.core.context_processors.i18n",
-    "django.core.context_processors.media",
-    "django.core.context_processors.static",
-    "django.core.context_processors.tz",
-    "django.contrib.messages.context_processors.messages"
+    'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.debug',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.media',
+    'django.core.context_processors.static',
+    'django.core.context_processors.tz',
+    'django.contrib.messages.context_processors.messages'
 )
 
 # Database
@@ -110,7 +110,7 @@ SHELL_PLUS = 'bpython'
 
 # Parse database configuration from $DATABASE_URL
 import dj_database_url
-#DATABASES['default'] =  dj_database_url.config(default=os.environ.get("DATABASE_URL", "sqlite:///" + os.path.join(BASE_DIR, "database.db")))
+#DATABASES['default'] =  dj_database_url.config(default=os.environ.get('DATABASE_URL', 'sqlite:///' + os.path.join(BASE_DIR, 'database.db')))
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
