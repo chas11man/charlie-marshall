@@ -7,4 +7,5 @@ urlpatterns = patterns('',
     # Examples:
     url(r'^$', home, name='home'),
     url(r'^admin/', include(admin.site.urls)),
+    (r'^photologue/', include('photologue.urls')),
 )

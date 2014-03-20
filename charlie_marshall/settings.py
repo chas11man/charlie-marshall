@@ -16,8 +16,6 @@ ALLOWED_HOSTS = ['*']
 
 # Static asset configuration
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-STATIC_ROOT = 'staticfiles'
-STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
@@ -49,6 +47,9 @@ INSTALLED_APPS = (
     # 3rd party
     'django_extensions',
     'bootstrap3',
+    'south',
+    'storages',
+    'photologue',
     # apps
     'polls',
 )
@@ -66,6 +67,15 @@ ROOT_URLCONF = 'charlie_marshall.urls'
 
 WSGI_APPLICATION = 'charlie_marshall.wsgi.application'
 
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.contrib.auth.context_processors.auth",
+    "django.core.context_processors.debug",
+    "django.core.context_processors.i18n",
+    "django.core.context_processors.media",
+    "django.core.context_processors.static",
+    "django.core.context_processors.tz",
+    "django.contrib.messages.context_processors.messages"
+)
 
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
@@ -93,11 +103,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.6/howto/static-files/
-
-STATIC_URL = '/static/'
+SHELL_PLUS = 'bpython'
 
 # Parse database configuration from $DATABASE_URL
 import dj_database_url
@@ -105,3 +111,18 @@ DATABASES['default'] =  dj_database_url.config(default=os.environ.get("DATABASE_
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+AWS_BUCKET_NAME = os.environ['AWS_BUCKET_NAME']
+AWS_STORAGE_BUCKET_NAME = AWS_BUCKET_NAME
+AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
+AWS_PRELOAD_METADATA = True
+DEFAULT_FILE_STORAGE = 'charlie_marshall.helpers.MediaRootS3BotoStorage'
+STATICFILES_STORAGE = 'charlie_marshall.helpers.StaticRootS3BotoStorage'
+S3_URL = 'http://s3.amazonaws.com/%s/' % AWS_BUCKET_NAME
+MEDIA_URL = S3_URL + 'media/'
+MEDIA_ROOT = MEDIA_URL
+STATIC_URL = S3_URL + 'static/'
+STATIC_ROOT = STATIC_URL
+ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
+
