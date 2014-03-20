@@ -121,8 +121,8 @@ DEFAULT_FILE_STORAGE = 'charlie_marshall.helpers.MediaRootS3BotoStorage'
 STATICFILES_STORAGE = 'charlie_marshall.helpers.StaticRootS3BotoStorage'
 S3_URL = 'http://s3.amazonaws.com/%s/' % AWS_BUCKET_NAME
 MEDIA_URL = S3_URL + 'media/'
-MEDIA_ROOT = MEDIA_URL
+#MEDIA_ROOT = MEDIA_URL
 STATIC_URL = S3_URL + 'static/'
-STATIC_ROOT = STATIC_URL
+#STATIC_ROOT = STATIC_URL
 ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
 
