@@ -2,4 +2,8 @@ from django.shortcuts import render
 from photologue.models import Photo
 
 def home(request):
-    return render(request, 'index.html', {'photo': Photo.objects.all()[0].get_display_url()})
+	if Photo.objects.all():
+		photo = Photo.objects.all()[0].image.url
+	else:
+		photo = None
+	return render(request, 'index.html', {'photo': photo})

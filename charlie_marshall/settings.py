@@ -85,10 +85,11 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'cmarshall',
-        'USER': 'chas11man',
-        'PASSWORD': 'chasman',
-        'HOST': ''
+        'NAME': 'dauvgseh6hsddm',
+        'USER': 'qatgkxjvykoncu',
+        'PASSWORD': 'xvy342f6zd43NtiiVoez0bwaZV',
+        'HOST': 'ec2-23-21-101-129.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
@@ -109,7 +110,7 @@ SHELL_PLUS = 'bpython'
 
 # Parse database configuration from $DATABASE_URL
 import dj_database_url
-DATABASES['default'] =  dj_database_url.config(default=os.environ.get("DATABASE_URL", "sqlite:///" + os.path.join(BASE_DIR, "database.db")))
+#DATABASES['default'] =  dj_database_url.config(default=os.environ.get("DATABASE_URL", "sqlite:///" + os.path.join(BASE_DIR, "database.db")))
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
