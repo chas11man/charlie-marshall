@@ -16,8 +16,10 @@ django-appconf==0.6
 django-bootstrap3==3.2.1
 django-extensions==1.3.3
 django-imagekit==3.0.3
-django-photologue==2.8.dev0
+git+git://github.com/petry/django-photologue.git
+django-staticfiles==1.2.1
 django-storages==1.1.8
+django-tinymce==1.5.2
 django-toolbelt==0.0.1
 gunicorn==18.0
 itsdangerous==0.23
