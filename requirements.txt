@@ -17,6 +17,7 @@ django-bootstrap3==3.2.1
 django-extensions==1.3.3
 django-imagekit==3.2
 git+git://github.com/petry/django-photologue.git
+git+git://github.com/AGoodId/django-s3-collectstatic.git#egg=django-s3-collectstatic
 django-staticfiles==1.2.1
 django-storages==1.1.8
 django-tinymce==1.5.2

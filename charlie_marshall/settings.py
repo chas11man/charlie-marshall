@@ -53,6 +53,7 @@ INSTALLED_APPS = (
     'storages',
     'photologue',
     'tinymce',
+    'django_s3_collectstatic',
     # apps
     'polls',
 )
@@ -124,9 +125,11 @@ AWS_PRELOAD_METADATA = True
 DEFAULT_FILE_STORAGE = 'charlie_marshall.helpers.MediaRootS3BotoStorage'
 STATICFILES_STORAGE = 'charlie_marshall.helpers.StaticRootS3BotoStorage'
 S3_URL = 'http://s3.amazonaws.com/%s/' % AWS_BUCKET_NAME
-MEDIA_URL = S3_URL + 'media/'
+STATIC_URL = 'http://static.charlie-marshall.com/static/'
+MEDIA_URL = 'http://static.charlie-marshall.com/media/'
+#MEDIA_URL = S3_URL + 'media/'
 #MEDIA_ROOT = ''
-STATIC_URL = S3_URL + 'static/'
+#STATIC_URL = S3_URL + 'static/'
 STATIC_ROOT = ''
 
 TINYMCE_DEFAULT_CONFIG = {
