@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 import os
 
 # Allow all host headers
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['.charlie-marshall.com', '.charlie-marshall.herokuapp.com', 'charlie-marshall.com']
 
 # Static asset configuration
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
