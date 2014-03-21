@@ -52,6 +52,7 @@ INSTALLED_APPS = (
     'south',
     'storages',
     'photologue',
+    'tinymce',
     # apps
     'polls',
 )
@@ -124,6 +125,14 @@ DEFAULT_FILE_STORAGE = 'charlie_marshall.helpers.MediaRootS3BotoStorage'
 STATICFILES_STORAGE = 'charlie_marshall.helpers.StaticRootS3BotoStorage'
 S3_URL = 'http://s3.amazonaws.com/%s/' % AWS_BUCKET_NAME
 MEDIA_URL = S3_URL + 'media/'
-#MEDIA_ROOT = MEDIA_URL
+#MEDIA_ROOT = ''
 STATIC_URL = S3_URL + 'static/'
-#STATIC_ROOT = STATIC_URL
+STATIC_ROOT = ''
+
+TINYMCE_DEFAULT_CONFIG = {
+    'theme': "advanced",
+    'cleanup_on_startup': True,
+    'custom_undo_redo_levels': 10,
+}
+TINYMCE_JS_ROOT = STATIC_URL + 'tiny_mce/'
+TINYMCE_JS_URL = TINYMCE_JS_ROOT + 'tiny_mce.js'
