@@ -112,9 +112,7 @@ SHELL_PLUS = 'bpython'
 
 # Parse database configuration from $DATABASE_URL
 import dj_database_url
-#DATABASES['default'] =  dj_database_url.config(default=os.environ.get('DATABASE_URL', 'sqlite:///' + os.path.join(BASE_DIR, 'database.db')))
 
-# Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 AWS_BUCKET_NAME = os.environ['AWS_BUCKET_NAME']
@@ -127,9 +125,7 @@ STATICFILES_STORAGE = 'charlie_marshall.helpers.StaticRootS3BotoStorage'
 S3_URL = 'http://s3.amazonaws.com/%s/' % AWS_BUCKET_NAME
 STATIC_URL = 'http://static.charlie-marshall.com/static/'
 MEDIA_URL = 'http://static.charlie-marshall.com/media/'
-#MEDIA_URL = S3_URL + 'media/'
 #MEDIA_ROOT = ''
-#STATIC_URL = S3_URL + 'static/'
 STATIC_ROOT = ''
 
 TINYMCE_DEFAULT_CONFIG = {
