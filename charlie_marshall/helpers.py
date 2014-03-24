@@ -12,7 +12,7 @@ class FixedS3BotoStorage(S3BotoStorage):
 			url = url.replace('%s.s3.amazonaws.com/' % bucket_name, '%s/' % bucket_name)
 		if 'https://' in url:
 			url = url.replace('https://', 'http://')
-		return url
+		return url.split('?')[0]
 
 StaticRootS3BotoStorage = lambda: FixedS3BotoStorage(location='static')
 MediaRootS3BotoStorage  = lambda: FixedS3BotoStorage(location='media')
