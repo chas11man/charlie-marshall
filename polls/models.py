@@ -1,4 +1,5 @@
 from django.db import models
+from django.template.defaultfilters import slugify
 from tinymce import models as tinymce_models
 from photologue.models import Photo
 
@@ -21,4 +22,11 @@ class Blog_Post(models.Model):
 	slug = models.SlugField(max_length=100, unique=True)
 	body = tinymce_models.HTMLField(blank=True)
 	photos = models.ManyToManyField(Photo, blank=True)
-	posted = models.DateField(db_index=True, auto_now_add=True)
+	posted = models.DateField(auto_now_add=True)
+
+	def save(self, *args, **kwargs):
+		self.slug = slugify(self.title)
+		super(Blog_Post, self).save(*args, **kwargs)
+
+	def __str__(self):
+		return self.title

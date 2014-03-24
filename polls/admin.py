@@ -2,6 +2,6 @@ from django.contrib import admin
 from polls.models import Blog_Post
 
 class Blog_PostAdmin(admin.ModelAdmin):
-    pass
+    fields = ('title', 'body', 'photos', )
 
 admin.site.register(Blog_Post, Blog_PostAdmin)

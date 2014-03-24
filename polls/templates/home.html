@@ -9,21 +9,18 @@
 {% endblock %}
 
 {% block content %}
+	<div class="col-sm-8 blog-main">
+		{% for post in posts %}
+			{% include 'blog_post.html' %}
+		{% endfor %}
 
-
-		<div class="col-sm-8 blog-main">
-			{% for post in posts %}
-				{% include 'blog_post.html' %}
-			{% endfor %}
-
-			<ul class="pager">
-				{% if page > 1 %}
-				<li><a href="{% url 'paged_home' page|add:'-1' %}">Previous</a></li>
-				{% endif %}
-				{% if end == False %}
-				<li><a href="{% url 'paged_home' page|add:'1' %}">Next</a></li>
-				{% endif %}
-			</ul>
-		</div>
-
+		<ul class="pager">
+			{% if page > 1 %}
+			<li><a href="{% url 'paged_home' page|add:'-1' %}">Previous</a></li>
+			{% endif %}
+			{% if end == False %}
+			<li><a href="{% url 'paged_home' page|add:'1' %}">Next</a></li>
+			{% endif %}
+		</ul>
+	</div>
 {% endblock %}
