@@ -122,7 +122,6 @@ AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
 AWS_PRELOAD_METADATA = True
 DEFAULT_FILE_STORAGE = 'charlie_marshall.helpers.MediaRootS3BotoStorage'
 STATICFILES_STORAGE = 'charlie_marshall.helpers.StaticRootS3BotoStorage'
-S3_URL = 'http://s3.amazonaws.com/%s/' % AWS_BUCKET_NAME
 STATIC_URL = 'http://static.charlie-marshall.com/static/'
 MEDIA_URL = 'http://static.charlie-marshall.com/media/'
 #MEDIA_ROOT = ''
