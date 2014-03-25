@@ -122,55 +122,11 @@ STATIC_URL = 'http://static.charlie-marshall.com/static/'
 MEDIA_URL = 'http://static.charlie-marshall.com/media/'
 #MEDIA_ROOT = ''
 STATIC_ROOT = ''
-URL = 'http://charlie-marshall.com'
+
 TINYMCE_DEFAULT_CONFIG = {
-    'mode' : "textareas",
     'theme': "advanced",
     'cleanup_on_startup': True,
     'custom_undo_redo_levels': 10,
-    'theme_advanced_toolbar_location': "top",
-    'theme_advanced_buttons1': "gallerycon",
-    'plugins': "gallerycon",
-    'content_css': STATIC_URL + 'js/tiny_mce/plugins/gallerycon/css/tiny-mce-extra.css',
-    'jquery_url': 'https://code.jquery.com/jquery.js',
-    'gallerycon_settings' :
-    {
-        'urls':
-        {
-            'galleries': URL + '/photologue/galleries?format=json&jsoncallback=?',
-            'images': URL + '/photologue/images/{gallery_id}?format=json&jsoncallback=?',
-            'image': URL + '/photologue/image/{image_id}?format=json&jsoncallback=?',
-            'img_src': URL + '/photologue/image_src/{image_id}/{size_id}?format=json&jsoncallback=?'
-        },
-        'sizes':
-        [
-            {
-                'id': 'event_thumb',
-                'name': 'Tiny thumbnail'
-            },
-            {
-                'id': 'thumbnail',
-                'name': 'Thumbnail'
-            },
-            {
-                'id':  'litebox',
-                'name': 'Display size'
-            },
-            {
-                'id': 'square',
-                'name': 'Square thumbnail'
-            },
-        ],
-        'default_size': 'thumbnail',
-        'default_alignment': 'left',
-        'link':
-        {
-            'rel': 'lightbox-{gallery_id}', # can_have {image_id}, {gallery_id} and {size_id} placeholders
-            'class': '', # can_have {image_id}, {gallery_id} and {size_id} placeholders
-            'size': 'litebox' # Either size or href should be set
-            # 'href': 'http://somelink.that_can_have{image_id}and{gallery_id}and{size_id}placeholders'
-        }
-    }
 }
 TINYMCE_JS_ROOT = STATIC_URL + 'tiny_mce/'
 TINYMCE_JS_URL = TINYMCE_JS_ROOT + 'tiny_mce.js'
