@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-{% load static %}
 
 {% block title %}Blog Title{% endblock %}
 
@@ -23,4 +22,15 @@
 			{% endif %}
 		</ul>
 	</div>
+{% endblock %}
+
+{% block sidebar %}
+<div class="sidebar-module">
+	<h4>Archives</h4>
+	<ol class="list-unstyled">
+		{% for month in months %}
+		<li><a href="#">{{month}}</a></li>
+		{% endfor %}
+	</ol>
+</div>
 {% endblock %}

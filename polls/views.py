@@ -11,4 +11,8 @@ def home(request, page=1):
 		end = True
 	else:
 		end = False
-	return render(request, 'index.html', {'posts': posts, 'page': page, 'end': end,})
+	months = []
+	for post in Blog_Post.objects.all().order_by('posted'):
+		if post.posted.strftime('%B \'%y') not in months:
+			months.append(post.posted.strftime('%B \'%y'))
+	return render(request, 'index.html', {'posts': posts, 'page': page, 'end': end, 'months': months, })
