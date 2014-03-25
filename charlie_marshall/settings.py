@@ -29,7 +29,7 @@ DEBUG = True
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = ['.charlie-marshall.com', '.charlie-marshall.herokuapp.com', 'charlie-marshall.com']
+ALLOWED_HOSTS = ['.charlie-marshall.com', '.charlie-marshall.herokuapp.com', 'charlie-marshall.com', 'localhost']
 
 # Application definition
 
