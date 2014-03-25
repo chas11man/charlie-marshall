@@ -24,6 +24,9 @@ class Blog_Post(models.Model):
 	photos = models.ManyToManyField(Photo, blank=True)
 	posted = models.DateTimeField(auto_now_add=True)
 
+	def posted_date(self):
+		return self.posted.strftime('%B %d, %Y')
+
 	def save(self, *args, **kwargs):
 		self.slug = slugify(self.title)
 		super(Blog_Post, self).save(*args, **kwargs)
