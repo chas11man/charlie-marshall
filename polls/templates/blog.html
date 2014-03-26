@@ -3,7 +3,7 @@
 {% block title %}Blog Title{% endblock %}
 
 {% block navbar %}
-<a class="blog-nav-item active" href="{% url 'home' %}">Home</a>
+<a class="blog-nav-item active" href="{% url 'blog' %}">Home</a>
 <a class="blog-nav-item" href="{% url 'pl-photologue-root' %}">Galery</a>
 {% endblock %}
 
@@ -15,10 +15,10 @@
 
 		<ul class="pager">
 			{% if page > 1 %}
-			<li><a href="{% url 'paged_home' page|add:'-1' %}">Previous</a></li>
+			<li><a href="{% url 'blog_paged' page|add:'-1' %}">Previous</a></li>
 			{% endif %}
-			{% if end == False %}
-			<li><a href="{% url 'paged_home' page|add:'1' %}">Next</a></li>
+			{% if next_page %}
+			<li><a href="{% url 'blog_paged' page|add:'1' %}">Next</a></li>
 			{% endif %}
 		</ul>
 	</div>
@@ -28,8 +28,8 @@
 <div class="sidebar-module">
 	<h4>Archives</h4>
 	<ol class="list-unstyled">
-		{% for month in months %}
-		<li><a href="#">{{month}}</a></li>
+		{% for key,value in months.items %}
+		<li><a href="{% url 'blog_month' key %}">{{value}}</a></li>
 		{% endfor %}
 	</ol>
 </div>
