@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block navbar %}
+{{ block.super }}
+{% endblock %}
+
+{% block title %}Charlie Marshall{% endblock %}
+
+{% block headline %}Charlie Marshall{% endblock %}
+
+{% block sub-headline %}Fool Developer{% endblock %}
+
+{% block content %}
+	<p>Because</p>
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript">
+	window.onload = function() {
+		document.getElementById("home").className += " active";
+	}
+</script>
+{% endblock %}

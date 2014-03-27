@@ -1,7 +1,0 @@
-{% load static %}
-<div class="blog-post">
-	<link rel="stylesheet" type="text/css" href="{% static 'blog.css' %}">
-    <h2 class="blog-post-title">{{ post.title }}</h2>
-    <p class="blog-post-meta">{{ post.posted_date }}</p>
-    {{ post.render | safe }}
-</div>

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from polls.models import Blog_Post
+from blog.models import Blog_Post
 
 class Blog_PostAdmin(admin.ModelAdmin):
     fields = ('title', 'body', 'photos', )

@@ -14,6 +14,8 @@ import os
 # Static asset configuration
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
+PROJECT_DIR = os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..'))
+
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
@@ -51,7 +53,9 @@ INSTALLED_APPS = (
     'tinymce',
     'django_s3_collectstatic',
     # apps
+    'charlie_marshall',
     'blog',
+    'home',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -76,6 +80,10 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.tz',
     'django.contrib.messages.context_processors.messages'
 )
+
+# TEMPLATE_DIRS = (
+#     os.path.join(PROJECT_DIR, 'charlie_marshall', 'templates')
+# )
 
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases

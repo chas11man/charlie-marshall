@@ -1,14 +1,14 @@
 [
 {
-    "pk": 1, 
-    "model": "polls.blog_post", 
+    "pk": 1,
+    "model": "blog.blog_post",
     "fields": {
-        "body": "<p>Charlie's first blog post.</p>\r\n<p><img class=\"img-rounded img-responsive\" src=\"{{post.photos.all.0.get_display_url}}\" alt=\"\" /></p>", 
+        "body": "<p>Charlie's first blog post.</p>\r\n<p><img class=\"img-rounded img-responsive\" src=\"{{post.photos.all.0.get_display_url}}\" alt=\"\" /></p>",
         "photos": [
             2
-        ], 
-        "posted": "2014-03-21T00:00:00Z", 
-        "slug": "first-post", 
+        ],
+        "posted": "2014-03-21T00:00:00Z",
+        "slug": "first-post",
         "title": "First Post"
     }
 }

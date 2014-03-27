@@ -21,7 +21,7 @@ def blog_helper(request, posts, page=1):
 			months[post.posted.strftime('%m%y')] = post.posted.strftime('%B \'%y')
 
 	context = {'posts': posts, 'page': page, 'next_page': next_page, 'months': months, }
-	return render(request, 'index.html', context)
+	return render(request, 'blog.html', context)
 
 
 def blog(request):

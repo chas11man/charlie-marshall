@@ -18,7 +18,8 @@
 		<div class="container">
 			<nav class="blog-nav">
 				{% block navbar %}
-				<a class="blog-nav-item" id="blog" href="{% url 'blog' %}">Home</a>
+				<a class="blog-nav-item" id="home" href="{% url 'home' %}">Home</a>
+				<a class="blog-nav-item" id="blog" href="{% url 'blog' %}">Blog</a>
 				<a class="blog-nav-item" id="gallery" href="{% url 'pl-photologue-root' %}">Gallery</a>
 				<a class="blog-nav-item" id="admin" href="{% url 'admin:index' %}">Admin</a>
 				{% endblock %}
