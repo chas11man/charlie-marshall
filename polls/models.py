@@ -29,12 +29,8 @@ class Blog_Post(models.Model):
 		return self.posted.strftime('%B %d, %Y')
 
 	@property
-	def template(self):
-		return Template(self.body)
-
-	@property
 	def render(self):
-		t = self.get_template()
+		t = Template(self.body)
 		c = Context({'post': self})
 		return t.render(c)
 
