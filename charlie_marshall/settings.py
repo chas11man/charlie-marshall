@@ -51,7 +51,7 @@ INSTALLED_APPS = (
     'tinymce',
     'django_s3_collectstatic',
     # apps
-    'polls',
+    'blog',
 )
 
 MIDDLEWARE_CLASSES = (
