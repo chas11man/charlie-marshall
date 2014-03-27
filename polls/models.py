@@ -1,4 +1,5 @@
 from django.db import models
+from django.template import Context, Template
 from django.template.defaultfilters import slugify
 from tinymce import models as tinymce_models
 from photologue.models import Photo
@@ -26,6 +27,16 @@ class Blog_Post(models.Model):
 
 	def posted_date(self):
 		return self.posted.strftime('%B %d, %Y')
+
+	@property
+	def template(self):
+		return Template(self.body)
+
+	@property
+	def render(self):
+		t = self.get_template()
+		c = Context({'post': self})
+		return t.render(c)
 
 	def save(self, *args, **kwargs):
 		self.slug = slugify(self.title)

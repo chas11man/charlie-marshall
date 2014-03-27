@@ -3,10 +3,9 @@
 {% block title %}Blog Title{% endblock %}
 
 {% block navbar %}
-<a class="blog-nav-item active" href="{% url 'home' %}">Home</a>
-<a class="blog-nav-item" href="{% url 'pl-photologue-root' %}">Galery</a>
-{% endblock %}
+{{ block.super }}
 
+{% endblock %}
 {% block content %}
 	<div class="blog-main">
 		{% for post in posts %}
@@ -33,4 +32,12 @@
 		{% endfor %}
 	</ol>
 </div>
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript">
+	window.onload = function() {
+		document.getElementById("home").className += " active";
+	}
+</script>
 {% endblock %}

@@ -18,8 +18,9 @@
 		<div class="container">
 			<nav class="blog-nav">
 				{% block navbar %}
-				<a class="blog-nav-item" href="{% url 'home' %}">Home</a>
-				<a class="blog-nav-item active" href="{% url 'pl-photologue-root' %}">Galery</a>
+				<a class="blog-nav-item" id="home" href="{% url 'home' %}">Home</a>
+				<a class="blog-nav-item" id="gallery" href="{% url 'pl-photologue-root' %}">Gallery</a>
+				<a class="blog-nav-item" id="home" href="{% url 'admin:index' %}">Admin</a>
 				{% endblock %}
 			</nav>
 		</div>
@@ -41,5 +42,6 @@
 
 	<script src="https://code.jquery.com/jquery.js"></script>
 	<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+	{% block scripts %}{% endblock %}
 </body>
 </html>
