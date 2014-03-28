@@ -1,14 +1,32 @@
-from django.http import Http404
-from django.shortcuts import render, redirect
+from django.core.urlresolvers import reverse
+from django.http import Http404, HttpResponseRedirect
+from django.shortcuts import render
 from blog.models import Blog_Post
 
-def blog_helper(request, posts, page=1):
+def blog(request):
+	page = int(request.GET.get('page', 1))
+	month = request.GET.get('month', None)
+	start = (page - 1) * 5
+	if month:
+		mon = month[:2]
+		year = month[2:]
+		posts = Blog_Post.objects.filter(posted__year='20{0}'.format(year), posted__month='{0}'.format(mon)).order_by('-posted')[start:start+6]
+	else:
+		posts = Blog_Post.objects.all().order_by('-posted')[start:start+6]
+
 	if len(posts) == 0:
 		if page == 1:
 			raise Http404
 		else:
-			page -= 1;
-			return redirect('blog_paged', page=page)
+			page -= 1
+			url = reverse(blog)
+			print url
+			q = '?page=%s' % page
+			if month:
+				q += '&month=%s' % month
+			url = url + q
+			print url
+			return HttpResponseRedirect(url)
 	elif len(posts) < 6:
 		next_page = False
 	else:
@@ -20,40 +38,6 @@ def blog_helper(request, posts, page=1):
 		if post.posted.strftime('%B \'%y') not in months:
 			months[post.posted.strftime('%m%y')] = post.posted.strftime('%B \'%y')
 
-	context = {'posts': posts, 'page': page, 'next_page': next_page, 'months': months, }
+	context = {'posts': posts, 'page': page, 'next_page': next_page, 'months': months, 'month': month}
+
 	return render(request, 'blog.html', context)
-
-
-def blog(request):
-	posts = Blog_Post.objects.all().order_by('-posted')[:6]
-
-	return blog_helper(request, posts)
-
-def blog_paged(request, page):
-	page = int(page)
-	if page <= 1:
-		return redirect('blog')
-
-	end_post = (page - 1) * 5
-	posts = Blog_Post.objects.all().order_by('-posted')[end_post:end_post+6]
-
-	return blog_helper(request, posts, page)
-
-def blog_month(request, month):
-	mon = month[:2]
-	year = month[2:]
-	posts = Blog_Post.objects.filter(posted__year='20{0}'.format(year), posted__month='{0}'.format(mon)).order_by('-posted')[:6]
-
-	return blog_helper(request, posts)
-
-def blog_month_paged(request, month, page):
-	page = int(page)
-	if page <= 1:
-		return redirect('blog_month', month=month)
-
-	end_post = (page - 1) * 5
-	mon = month[:2]
-	year = month[2:]
-	posts = Blog_Post.objects.filter(posted__year='20{0}'.format(year), posted__month='{0}'.format(mon)).order_by('-posted')[end_post:end_post+6]
-
-	return blog_helper(request, posts, page)

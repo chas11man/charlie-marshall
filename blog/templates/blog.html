@@ -18,10 +18,18 @@
 
 		<ul class="pager">
 			{% if page > 1 %}
-			<li><a href="{% url 'blog_paged' page|add:'-1' %}">Previous</a></li>
+				{% if month %}
+					<li><a href="{% url 'blog' %}?page={{page|add:'-1'}}&month={{month}}">Previous</a></li>
+				{% else %}
+					<li><a href="{% url 'blog' %}?page={{page|add:'-1'}}">Previous</a></li>
+				{% endif %}
 			{% endif %}
 			{% if next_page %}
-			<li><a href="{% url 'blog_paged' page|add:'1' %}">Next</a></li>
+				{% if month %}
+					<li><a href="{% url 'blog' %}?page={{page|add:'1'}}&month={{month}}">Next</a></li>
+				{% else %}
+					<li><a href="{% url 'blog' %}?page={{page|add:'1'}}">Next</a></li>
+				{% endif %}
 			{% endif %}
 		</ul>
 	</div>
@@ -32,7 +40,7 @@
 	<h4>Archives</h4>
 	<ol class="list-unstyled">
 		{% for key,value in months.items %}
-		<li><a href="{% url 'blog_month' key %}">{{value}}</a></li>
+			<li><a href="{% url 'blog' %}?month={{key}}">{{value}}</a></li>
 		{% endfor %}
 	</ol>
 </div>
