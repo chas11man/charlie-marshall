@@ -1,23 +1,125 @@
-{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+		<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="Charlie Marshall">
+	<link rel="shortcut icon" href="{% static 'assets/ico/favicon.ico' %}">
+	<title>Charlie Marshall</title>
+	<link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" media="screen">
+	<link href="{% static 'home.css' %}" rel="stylesheet">
+	<style media="screen" type="text/css">
+		.pull-down {
+			display: inline-block;
+			float: none;
+			width: 32.727%
+		}
+	</style>
+</head>
+<body>
+	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<div class="navbar-header" style="padding-left: 9%;">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="{% url 'home' %}">CM</a>
+		</div>
+		<div class="container" style="padding-right: 9%;">
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-left">
+					<li class="active"><a href="{% url 'home' %}">Home</a></li>
+					<li><a href="{% url 'blog' %}">Blog</a></li>
+					<li><a href="{% url 'pl-photologue-root' %}">Gallery</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="{% url 'admin:index' %}">Admin</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-10 col-md-offset-1">
+				<div class="page-header">
+					<h1>Charlie Marshall</h1>
+				</div>
+				<div class="row">
+					<div class="col-md-10">
+						<div class="tabbable" id="sections">
+							<ul class="nav nav-tabs">
+								<li class="active">
+									<a href="#work" data-toggle="tab">Work History</a>
+								</li>
+								<li>
+									<a href="#education" data-toggle="tab">Education</a>
+								</li>
+							</ul>
+							<div class="tab-content">
+								<div class="tab-pane active" id="work">
+									<div class="row">
+										<div class="col-md-12">
+											<div class="row">
+												<div class="col-md-12">
+													<div class="row">
+														<h2>
+															<div class="col-md-4 text-left pull-down"><small>June 2013 - August 2013</small></div>
+															<div class="col-md-4 text-center pull-down">The Motley Fool<h3 style="margin-top: 0px;"><small>Software Development Intern</small></h3></div>
+															<div class="col-md-3 text-right pull-down"><small>Alexandria, VA</small></div>
+														</h2>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-md-12">
+													<h2>
+														<div class="row">
+														<div class="col-md-4 text-left pull-down"><small>May 2012 - August 2012</small></div>
+														<div class="col-md-4 text-center pull-down">CENTURY 21 Redwood Realty<h3 style="margin-top: 0px;"><small>Marketing Intern</small></h3></div>
+														<div class="col-md-3 text-right pull-down"><small>Arlington, VA</small></div>
+													</h2>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="tab-pane" id="education">
+									<p>
+										Howdy, I'm in Section 2.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-2">
+						<img alt="140x140" src="http://lorempixel.com/140/140/" class="img-rounded" id="picture" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+	<script type="text/javascript">
+		window.onscroll = function (e) {
+			var vertical_position = 0;
+			if (pageYOffset)//usual
+				vertical_position = pageYOffset;
+			else if (document.documentElement.clientHeight)//ie
+				vertical_position = document.documentElement.scrollTop;
+			else if (document.body)//ie quirks
+				vertical_position = document.body.scrollTop;
 
-{% block navbar %}
-{{ block.super }}
-{% endblock %}
-
-{% block title %}Charlie Marshall{% endblock %}
-
-{% block headline %}Charlie Marshall{% endblock %}
-
-{% block sub-headline %}Fool Developer{% endblock %}
-
-{% block content %}
-	<p>Because</p>
-{% endblock %}
-
-{% block scripts %}
-<script type="text/javascript">
-	window.onload = function() {
-		document.getElementById("home").className += " active";
-	}
-</script>
-{% endblock %}
+			pic = $('#picture');
+			if (pic.offset().top < (vertical_position + 50)) {
+				pic.
+			}
+		}
+	</script>
+</body>
+</html>

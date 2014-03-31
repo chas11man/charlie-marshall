@@ -1,8 +1,11 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block navbar %}
 {{ block.super }}
 {% endblock %}
+
+{% block css %}<link href="{% static 'bootstrap/css/bootstrap-blog.css' %}" rel="stylesheet">{% endblock %}
 
 {% block title %}Charlie's Blog{% endblock %}
 
