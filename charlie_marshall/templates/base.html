@@ -20,6 +20,9 @@
 		ul ul {
 			padding-left: 40px;
 		}
+		img {
+			margin-bottom: 15px;
+		}
 	</style>
 </head>
 <body style="padding-top: 50px;">
@@ -56,7 +59,12 @@
 					</div>
 					<div class="col-xs-2">
 						<img alt="140x140" src="{{'profile-picture'|picture}}" class="img-rounded" id="picture" align="right" />
-						{% block sidebar %}{% endblock %}
+						<div class="row">
+							<div class="col-xs-12 blog-sidebar">
+								{% include 'sidebar.html' %}
+								{% block sidebar %}{% endblock %}
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
