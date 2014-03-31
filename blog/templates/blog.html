@@ -5,13 +5,11 @@
 {{ block.super }}
 {% endblock %}
 
-{% block css %}{% endblock %}
+{% block css %}<link href="{% static 'bootstrap/css/bootstrap-blog.css' %}" rel="stylesheet">{% endblock %}
 
 {% block title %}Charlie's Blog{% endblock %}
 
-{% block headline %}Charlie's Blog{% endblock %}
-
-{% block sub-headline %}Life, Liberty, and the Pursuit of Frattiness{% endblock %}
+{% block headline %}Charlie's Blog <small>Life, Liberty, and the Pursuit of Frattiness</small>{% endblock %}
 
 {% block content %}
 	<div class="blog-main">
@@ -39,7 +37,7 @@
 {% endblock %}
 
 {% block sidebar %}
-<div class="sidebar-module">
+<div class="blog-sidebar sidebar-module">
 	<h4>Archives</h4>
 	<ol class="list-unstyled">
 		{% for key,value in months.items %}

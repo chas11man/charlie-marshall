@@ -1,10 +1,11 @@
-from django.core.urlresolvers import reverse
-from django.http import Http404, HttpResponseRedirect
+from .helpers import redirect_url
 from django.shortcuts import render
 from blog.models import Blog_Post
 
 def blog(request):
 	page = int(request.GET.get('page', 1))
+	if page < 1:
+		return redirect_url(1)
 	month = request.GET.get('month', None)
 	start = (page - 1) * 5
 	if month:
@@ -18,15 +19,7 @@ def blog(request):
 		if page == 1:
 			raise Http404
 		else:
-			page -= 1
-			url = reverse(blog)
-			print url
-			q = '?page=%s' % page
-			if month:
-				q += '&month=%s' % month
-			url = url + q
-			print url
-			return HttpResponseRedirect(url)
+			return redirect_url(page-1, month=month)
 	elif len(posts) < 6:
 		next_page = False
 	else:
